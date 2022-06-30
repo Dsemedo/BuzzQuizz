@@ -5,10 +5,11 @@ const promessa = axios.get(`${API}`
   
   function obterQuizz(quiz) {
 	const quizServer = quiz.data;
-	carregarQuiz(8229, quizServer);
+	carregarQuiz(1, quizServer);
+	console.log(quizServer);
   }
   
-  function carregarQuiz(id, quizServer) {
+function carregarQuiz(id, quizServer) {
 	const quizEscolhido = quizServer.find((quiz) => quiz.id === id);
 	postaPergunta(quizEscolhido.questions);
 	postaImagem(quizEscolhido);
@@ -16,13 +17,11 @@ const promessa = axios.get(`${API}`
   
   function postaImagem(titulo) {
 	const imagemQuiz = document.querySelector(".imagem-quizz2");
-	for (let i = 0; i < 1; i++) {
 	  imagemQuiz.innerHTML += `
   
 				  <img src="${titulo.image}" alt="" srcset="">
 				  <p>${titulo.title}</p>
 		  `;
-	}
   }
   
   function postaPergunta(perguntas) {
@@ -45,21 +44,32 @@ const promessa = axios.get(`${API}`
 	  for (let j = 0; j < perguntasEmbaralhadas.length; j++) {
 		selecionaImagem.innerHTML += `
   
-			  <div class="imagem2 ${perguntasEmbaralhadas}" >
-				  <img src="${perguntasEmbaralhadas[j].image}" alt="" onclick="selecionaResposta(this)">
+			  <div class="imagem2 imagemid-${i}">
+				  <img src="${perguntasEmbaralhadas[j].image}" alt="" onclick="selecionaResposta(this,${i})" class="${perguntasEmbaralhadas[j].isCorrectAnswer}">
 				  <p>${perguntasEmbaralhadas[j].text}</p>
 			  </div>
 		  
 		  `;
 	  }
 	}
-	console.log(perguntas);
-	console.log(perguntasEmbaralhadas);
   }
 
-  function selecionaResposta(elemento) {
-	console.log(elemento);
-	elemento.classList.add('borda-verde');
+  function selecionaResposta(imagem, id) {
+	console.log(imagem)
+	const verdade = imagem.classList;
+	if (verdade.contains('true') === true) {
+		imagem.classList.add('borda-verde');
+	} else {
+		imagem.classList.add('borda-vermelha')
+	}
+
+	const outrasImagens = document.querySelectorAll(`.imagemid-${id}`);
+	for (let i=0; i < outrasImagens.length; i++) {
+		if (outrasImagens[i].firstElementChild !== imagem) {
+			outrasImagens[i].classList.add('filtrado');
+			outrasImagens[i].firstElementChild.onclick = ""
+		}
+		console.log(outrasImagens[i].firstElementChild);
+	}
+	
   }
-  
-  console.log(perguntas);

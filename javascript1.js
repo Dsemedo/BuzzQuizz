@@ -1,1 +1,1 @@
-let API = "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes";
+let API = "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes";
