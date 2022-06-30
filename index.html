@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BuzzQuizz</title>
+    <link
+      href="
+    https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@100;300;400;500;700&display=swap
+    "
+      rel=" stylesheet "
+    />
     <link rel="stylesheet" href="./Css/reset.css">
     <link rel="stylesheet" href="./Css/style.css">
     <link rel="icon" type="imagem/png" href="/Fotos/icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-</head>
+  </head>
+  <body>
+    
+  
 
-<body>
+
         <div class="barra-topo">BuzzQuizz</div>
 
-        <div class="tela1">
+        <div class="tela1 escondido">
             <div class="lista-usuario1">
                 <span>
                     Você não criou nenhum quizz ainda :(
@@ -40,14 +49,18 @@
 
         </div>
 
-        <div class="tela2 escondido">
-
+        <div class="tela2">
+          <div class="conteudo2">
+            <div class="imagem-quizz2">
+              <div class="escurecer2"></div>
+            </div>
+      
+            <section class="jogo2"></section>
+          </div>
         </div>
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="javascript1.js"></script>
-    <script src="javascript2.js"></script>
-</body>
+  </body>
 </html>
