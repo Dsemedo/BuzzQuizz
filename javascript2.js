@@ -1,1 +1,1 @@
-// alert("Ola mundo!")
+console.log(listarQuizzes())

@@ -36,7 +36,7 @@
     background-color: white;
     margin-top: 50px;
     margin-bottom: 80px;
-    border: 1px dashed #d5d5d5;
+    border: 2px dashed #d5d5d5;
     width: 1100px;
     height: 200px;
     border-radius: 10px;
@@ -68,39 +68,72 @@
 }
 
 .lista-api1{
-    margin-top: 10px;
-    background-color: rebeccapurple;
+    margin: 10px 0 30px 0;
     width: 1100px;
     height: auto;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
+    background-color: gray;
 }
 
 .quizzes-api1{
     width: 340px;
     height: 200px;
-    background-color: white;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(/Fotos/ka_os-simpsons_2000x1125px_4c71687a.webp);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 110%;
+    overflow: hidden;
+    position: relative;
+    word-break: break-all;
+    display: flex;
+    justify-content: center;
+}
+
+.quizzes-api1 img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    position: absolute;
+    }
+
+.degrade{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%);
+    position: absolute;
 }
 
 .quizzes-api1 span{
     color: white;
+    width: 90%;
+    margin: 140px 10px 0 10px;
     display: flex;
-    text-align: center;
     justify-content: center;
-    align-items: center;
-    margin-top: 140px;
     line-height: 25px;
     font-size: 19px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-style: normal;
+    z-index: 1;
 }
 
+@media (max-width: 1100px) {
+   
+    .lista-usuario1{
+        width: 80%;
+    }
+
+    .tela1 > span{
+        margin-right: 66%;
+    }
+    .lista-api1{
+        width: 80%;
+    }
+
+    .quizzes-api1{
+        width: 30%;
+        height: 30%;
+    }
+
+
+}
