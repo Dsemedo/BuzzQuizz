@@ -98,3 +98,106 @@
   .borda-vermelha {
     border: 5px solid red;
   }
+
+.escondido {
+    display: none;
+}
+
+.barra-topo{
+    background-color: #EC362D;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: white;
+}
+
+.tela1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tela1 > span{
+    margin-right: 940px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.lista-usuario1{
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    border: 1px dashed #d5d5d5;
+    width: 1100px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lista-usuario1 span{
+    width: 220px;
+    color: #B9B9B9;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    text-align: center;
+}
+
+.botao-criar1{
+    color: #EC362D;
+    width: 120px;
+    height: 30px;
+    border: 1px dashed #EC362D;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.lista-api1{
+    margin-top: 10px;
+    background-color: rebeccapurple;
+    width: 1100px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.quizzes-api1{
+    width: 340px;
+    height: 200px;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(/Fotos/ka_os-simpsons_2000x1125px_4c71687a.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 110%;
+    object-fit: cover;
+}
+
+.quizzes-api1 span{
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140px;
+    line-height: 25px;
+    font-size: 19px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+

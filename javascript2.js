@@ -1,5 +1,5 @@
-const promessa = axios.get(
-	"https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes"
+const promessa = axios.get(`${API}`
+	
   );
   promessa.then(obterQuizz);
   
