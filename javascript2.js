@@ -75,7 +75,7 @@ function carregarQuiz(id, quizServer) {
 			outrasImagens[i].firstElementChild.onclick = ""
 		}
 		//console.log(outrasImagens[i].firstElementChild);
-		console.log(rolaDiv);
+
 	}
 	verificaCliques(imagem, numerodeperguntas);
 	verificaResposta(imagem, numerodeperguntas);
@@ -87,16 +87,11 @@ function carregarQuiz(id, quizServer) {
 		clique++;
 	}
 
-	if (clique === perguntas) {
-		const secao = document.querySelector('.jogo2');
-		secao.innerHTML += `<button class="reiniciaQuiz" onclick="reiniciaQuizz()">Reiniciar Quizz</button>
-								<button class="home" onclick="paginaInicial()">Home</button>
-	`;
-	}
 }
 
   let arredondado;
 function verificaResposta(selecionado, qtdperguntas) {
+	let levelCorreto;
 	let verifica = selecionado.classList;
 	if (verifica.contains('true') === true) {
 		contador++;
@@ -105,18 +100,19 @@ function verificaResposta(selecionado, qtdperguntas) {
 		resultado = contador/clique;
 		arredondado = resultado*100;
 		for(let i = 0; i < levels.length; i++) {
-			if (arredondado > levels[i].minValue) {
-				const secao = document.querySelector('.jogo2');
-				secao.innerHTML += `	${levels[i].text}, ${levels[i].image} e o ${Math.round(arredondado)}!
-			`
-			} else {
-				const secao = document.querySelector('.jogo2');
-				secao.innerHTML += `	${levels[i].text}, ${levels[i].image} e o ${Math.round(arredondado)}!
-			`
-			}
-	
+			
+			if (arredondado >= levels[i].minValue) {
+				levelCorreto = i;
+			} 
+
+
 		}
-		
+		const secao = document.querySelector('.jogo2');
+				secao.innerHTML += `	${Math.round(arredondado)}% de acerto:${levels[levelCorreto].title}, <img src="${levels[levelCorreto].image}" e ${levels[levelCorreto].text}
+
+				<button class="reiniciaQuiz" onclick="reiniciaQuizz()">Reiniciar Quizz</button>
+								<button class="home" onclick="paginaInicial()">Home</button>
+				`
 	}
 }
 
