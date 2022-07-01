@@ -1,4 +1,4 @@
-let API = "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes";
+let API = "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes";
 let arrayQuizzes = [];
 
 let quizz;
@@ -30,9 +30,8 @@ function listarQuizzes(resposta) {
 function carregarID(id) {
 
     quizz = id;
-    console.log(id);
+    console.log(quizz);
+    return quizz;
 
-    carregarQuizz();
+    
 }
-
-
