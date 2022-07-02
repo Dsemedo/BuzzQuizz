@@ -132,14 +132,12 @@
 }
 
 .tela1{
-    display: none;
+    display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.tela2 {
-  display: none;
-}
+
 
 .tela1 > span{
     margin-right: 940px;
@@ -279,6 +277,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 75px;
+}
+
+.tela3-1 {
+  display: none;
 }
 
 .começo {
