@@ -179,6 +179,18 @@
     margin-top: 30px;
 }
 
+.botao-reiniciar2{
+  color: #EC362D;
+  width: 120px;
+  height: 30px;
+  border: 1px dashed #EC362D;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
 .lista-api1{
     margin: 10px 0 30px 0;
     width: 1100px;

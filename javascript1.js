@@ -1,7 +1,7 @@
 let API = "https://mock-api.driven.com.br/api/v7/buzzquizz/quizzes";
 let arrayQuizzes = [];
-
-let quizz;
+let array;
+let quizzID;
 
 const promise2 = axios.get(API);
 promise2.then(listarQuizzes);
@@ -25,13 +25,16 @@ function listarQuizzes(resposta) {
     </div>  
     `
     }
+    array = resposta.data
+
 }
 
 function carregarID(id) {
 
-    quizz = id;
-    console.log(quizz);
-    return quizz;
-
+    quizzID = id;
+    console.log(quizzID);
+    carregarQuiz(quizzID,array)
     
 }
+
+
