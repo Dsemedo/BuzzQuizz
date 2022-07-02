@@ -11,56 +11,72 @@
     "
       rel=" stylesheet "
     />
-    <link rel="stylesheet" href="./Css/reset.css">
-    <link rel="stylesheet" href="./Css/style.css">
+    <link rel="stylesheet" href="./Css/reset.css" />
+    <link rel="stylesheet" href="./Css/style.css" />
     <link rel="icon" type="imagem/png" href="/Fotos/icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    
-  
+    <div class="barra-topo">BuzzQuizz</div>
 
+    <div class="tela1">
+      <div class="lista-usuario1">
+        <span> Você não criou nenhum quizz ainda :( </span>
 
-        <div class="barra-topo">BuzzQuizz</div>
+        <div class="botao-criar1">Criar Quizz</div>
+      </div>
 
-        <div class="tela1 escondido">
-            <div class="lista-usuario1">
-                <span>
-                    Você não criou nenhum quizz ainda :(
-                </span>
-            
-                <div class="botao-criar1">
-                    Criar Quizz
-                    
-                </div>
-               
-            </div>
+      <span> Todos os Quizzes </span>
 
-            <span>
-                Todos os Quizzes
-            </span>
-            
-            <div class="lista-api1">         
+      <div class="lista-api1"></div>
+    </div>
 
-               
-            </div>
-
+    <div class="tela2">
+      <div class="conteudo2">
+        <div class="imagem-quizz2">
+          <div class="escurecer2"></div>
         </div>
 
-        <div class="tela2">
-          <div class="conteudo2">
-            <div class="imagem-quizz2">
-              <div class="escurecer2"></div>
-            </div>
-      
-            <section class="jogo2"></section>
-          </div>
-        </div>
+        <section class="jogo2"></section>
+      </div>
+    </div>
 
+    <div class="tela3">
+      <div class="caixa-cria-quizz3">
+        <div class="começo"><h4>Comece pelo começo</h4></div>
+        <input type="text" name="" id="" placeholder="Título do seu quizz" />
+        <input
+          type="url"
+          name=""
+          id=""
+          placeholder="URL da imagem do seu quizz"
+        />
+        <input
+          type="number"
+          name=""
+          id=""
+          placeholder="Quantidade de perguntas do quizz"
+        />
+        <input
+          type="number"
+          name=""
+          id=""
+          placeholder="Quantidade de níveis do quizz"
+        />
+
+        <button type="submit" onclick="enviaDados()">
+          Prosseguir para perguntas
+        </button>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="javascript1.js"></script>
+    <script src="/BuzzQuizz/javascript2.js"></script>
   </body>
 </html>

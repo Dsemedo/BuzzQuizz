@@ -1,28 +1,28 @@
-const promessa = axios.get(`${API}`
-	
-  );
-  promessa.then(obterQuizz);
+
+let contador = 0;
+let clique = 0;
+let resultado;
+let levels;
   
-  function obterQuizz(quiz) {
-	const quizServer = quiz.data;
-	carregarQuiz(8229, quizServer);
-  }
+
   
-  function carregarQuiz(id, quizServer) {
+function carregarQuiz(id, quizServer) {
 	const quizEscolhido = quizServer.find((quiz) => quiz.id === id);
 	postaPergunta(quizEscolhido.questions);
 	postaImagem(quizEscolhido);
+	levels = quizEscolhido.levels;
+    const tela1 = document.querySelector('.tela1');
+    tela1.classList.add('escondido');
+    tela1.classList.remove('tela1');
   }
   
   function postaImagem(titulo) {
 	const imagemQuiz = document.querySelector(".imagem-quizz2");
-	for (let i = 0; i < 1; i++) {
 	  imagemQuiz.innerHTML += `
   
 				  <img src="${titulo.image}" alt="" srcset="">
 				  <p>${titulo.title}</p>
 		  `;
-	}
   }
   
   function postaPergunta(perguntas) {
@@ -45,21 +45,86 @@ const promessa = axios.get(`${API}`
 	  for (let j = 0; j < perguntasEmbaralhadas.length; j++) {
 		selecionaImagem.innerHTML += `
   
-			  <div class="imagem2 ${perguntasEmbaralhadas}" >
-				  <img src="${perguntasEmbaralhadas[j].image}" alt="" onclick="selecionaResposta(this)">
+			  <div class="imagem2 imagemid-${i}">
+				  <img src="${perguntasEmbaralhadas[j].image}" alt="" onclick="selecionaResposta(this,${i},${perguntas.length})" class="${perguntasEmbaralhadas[j].isCorrectAnswer}">
 				  <p>${perguntasEmbaralhadas[j].text}</p>
 			  </div>
 		  
 		  `;
 	  }
 	}
-	console.log(perguntas);
-	console.log(perguntasEmbaralhadas);
+	
   }
 
-  function selecionaResposta(elemento) {
-	console.log(elemento);
-	elemento.classList.add('borda-verde');
+  function selecionaResposta(imagem, id, numerodeperguntas) {
+	console.log(imagem)
+	const verdade = imagem.classList;
+	if (verdade.contains('true') === true) {
+		imagem.classList.add('borda-verde');
+	} else {
+		imagem.classList.add('borda-vermelha')
+	}
+	
+	const outrasImagens = document.querySelectorAll(`.imagemid-${id}`);
+	for (let i=0; i < outrasImagens.length; i++) {
+		if (outrasImagens[i].firstElementChild !== imagem) {
+			outrasImagens[i].classList.add('filtrado');
+			outrasImagens[i].firstElementChild.onclick = ""
+		}
+		//console.log(outrasImagens[i].firstElementChild);
+
+	}
+	const rolaDiv = document.querySelector(`#quadro-${id+1}`);
+	if(rolaDiv !== null) {rolaDiv.scrollIntoView();}
+	console.log(rolaDiv)
+	verificaCliques(imagem, numerodeperguntas);
+	verificaResposta(imagem, numerodeperguntas)
   }
-  
-  console.log(perguntas);
+
+  function verificaCliques(selecao,perguntas) {
+	let conta = selecao.classList;
+	if (conta.contains('true') || conta.contains('false')) {
+		clique++;
+	}
+
+}
+
+  let arredondado;
+function verificaResposta(selecionado, qtdperguntas) {
+	let levelCorreto;
+	let verifica = selecionado.classList;
+	if (verifica.contains('true') === true) {
+		contador++;
+	}
+	if (clique === qtdperguntas) {
+		resultado = contador/clique;
+		arredondado = resultado*100;
+		for(let i = 0; i < levels.length; i++) {
+			
+			if (arredondado >= levels[i].minValue) {
+				levelCorreto = i;
+			} 
+
+
+		}
+		const secao = document.querySelector('.jogo2');
+				secao.innerHTML += `	${Math.round(arredondado)}% de acerto:${levels[levelCorreto].title}, <img src="${levels[levelCorreto].image}" e ${levels[levelCorreto].text}
+
+				<button class="reiniciaQuiz" onclick="reiniciaQuizz()">Reiniciar Quizz</button>
+								<button class="home" onclick="paginaInicial()">Home</button>
+				`
+	}
+}
+
+  function reiniciaQuizz() {
+	carregarQuiz();
+  }
+
+  function paginaInicial(){
+	const tela2 = document.querySelector('.tela2')
+	tela2.classList.add('escondido');
+	tela2.classList.remove('tela2');
+	const tela1 = document.querySelector('.escondido');
+	tela1.classList.add('tela1');
+	tela1.classList.remove('escondido');
+  }
