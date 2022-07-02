@@ -34,7 +34,7 @@ function carregarID(id) {
     quizzID = id;
     console.log(quizzID);
     carregarQuiz(quizzID,array)
-    
+   
 }
 
 
