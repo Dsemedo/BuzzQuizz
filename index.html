@@ -47,7 +47,7 @@
     </div>
 
     <div class="tela3-1">
-      <div class="caixa-cria-quizz3">
+      <div class="caixa-quizz3">
         <div class="começo"><h4>Comece pelo começo</h4></div>
         <input
           type="text"
@@ -55,12 +55,14 @@
           id="TituloQuizz"
           maxlength="65"
           placeholder="Título do seu quizz"
+          pattern="[a-zA-Z0-9]+"
         />
         <input
           type="url"
           name=""
           id="UrlQuizz"
           placeholder="URL da imagem do seu quizz"
+          required
         />
         <input
           type="number"
@@ -77,9 +79,7 @@
           placeholder="Quantidade de níveis do quizz"
         />
 
-        <button type="submit" onclick="enviaDados()">
-          Prosseguir para perguntas
-        </button>
+        <button type="enviar" id="enviar">Prosseguir para perguntas</button>
       </div>
     </div>
 

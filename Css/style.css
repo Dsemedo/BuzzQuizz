@@ -132,11 +132,13 @@
 }
 
 .tela1{
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: column;
 }
-
+.tela2 {
+  display: none;
+}
 
 
 .tela1 > span{
@@ -247,7 +249,7 @@
   filter: brightness(0.5);
    }
 
-  .caixa-cria-quizz3 {
+  .caixa-quizz3 {
     margin: 0 auto;
     max-width: 50%;
     display: flex;
@@ -256,7 +258,7 @@
     flex-direction: column;
   }
 
-  .caixa-cria-quizz3 input {
+  .caixa-quizz3 input {
     width: 85%;
     height: 30px;
     max-width: 400px;
@@ -266,7 +268,7 @@
     margin-top: 5px;
   }
 
-  .caixa-cria-quizz3 button{
+  .caixa-quizz3 button{
     background: #EC362D;
     color: white;
     min-width: 250px;
@@ -280,7 +282,7 @@
 }
 
 .tela3-1 {
-  display: none;
+  display: flex;
 }
 
 .começo {
