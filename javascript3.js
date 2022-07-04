@@ -3,6 +3,12 @@ let qtdPerguntas;
 let qtdNiveis;
 const btn = document.querySelector('#enviar');
 
+function abrirTela3(){
+  const tela1 = document.querySelector(".tela1").classList.add("escondido");
+  const tela3 = document.querySelector(".tela3-1").classList.remove("escondido");
+}
+
+
 btn.addEventListener('click',function(e){
   e.preventDefault();
   const tituloQuizz3 = document.querySelector('#TituloQuizz');
@@ -48,6 +54,8 @@ function criaQuizz(perguntas3){
         <div class="caixa-quizz3">
 
         <div class="pergunta1-3">
+        
+
           <div class="pergunta-aberta">
             <div class="titulo3">
             <span>Pergunta ${i + 1}</span>
@@ -67,7 +75,7 @@ function criaQuizz(perguntas3){
           </div>
 
           <div class="titulo3">
-            <span>Resposta Correta</span>
+            
 
             <input
               type="text"
@@ -75,17 +83,16 @@ function criaQuizz(perguntas3){
               id="RespostaCorreta${i}"
               placeholder="Resposta correta"
             />
-            <input
+            <input class="true"
               type="url"
               name=""
-              id="UrlQuizz${i}"
+              id="UrlCorreta${i}"
               placeholder="URL da imagem"
             />
           </div>
 
           <div class="titulo3">
-            <span>Respostas incorretas</span>
-
+            
             <input
               type="text"
               name=""
@@ -95,7 +102,7 @@ function criaQuizz(perguntas3){
             <input
               type="url"
               name=""
-              id="UrlResposta${i}"
+              id="UrlIncorreta${i}"
               placeholder="URL da imagem 1"
             />
 
@@ -109,7 +116,7 @@ function criaQuizz(perguntas3){
               <input
                 type="url"
                 name=""
-                id="UrlResposta${i+1}"
+                id="UrlIncorreta${i+1}"
                 placeholder="URL da imagem 2"
               />
             </div>
@@ -124,7 +131,7 @@ function criaQuizz(perguntas3){
               <input
                 type="url"
                 name=""
-                id="UrlResposta${i+2}"
+                id="UrlIncorreta${i+2}"
                 placeholder="URL da imagem 3"
               />
             </div>
@@ -136,7 +143,7 @@ function criaQuizz(perguntas3){
     }
     tela32.innerHTML += `
     <div class="caixa-quizz3">
-    <button type="submit" onclick= "enviarPerguntas()">
+    <button type="submit" onclick="enviarPerguntas()">
       Prosseguir para criar níveis
     </button>
     </div>
@@ -145,18 +152,45 @@ function criaQuizz(perguntas3){
 
 }
 
-function enviarPerguntas(){
-
+function enviarPerguntas() {
   for (let i = 0; i < qtdPerguntas; i++) {
     const tituloPergunta = document.querySelector(`#TituloPergunta${i}`).value
     const corPergunta = document.querySelector(`#CorPergunta${i}`).value;
+    objeto.questions[i] = {
+      title:tituloPergunta,
+      color:corPergunta, 
+      answers:[]};
 
-    objeto.questions.push(tituloPergunta, corPergunta);
-    console.log(tituloPergunta, corPergunta);
-    
+
+
+
+      const RespostaCorreta = document.querySelector(`#RespostaCorreta${i}`).value
+      const UrlCorreta = document.querySelector(`#UrlCorreta${i}`).value;
+      const RespostaIncorreta =  document.querySelector(`#RespostaIncorreta${i+2}`).value;
+      const UrlIncorreta = document.querySelector(`#UrlIncorreta${i+2}`).value;
+      const variavel = documente.querySelector()
+
+      if(RespostaIncorreta){
+        for(let j = 0; j < 4 ; j++) {
+          objeto.questions[i].answers[j] = {
+            text:RespostaCorreta,
+            image: UrlCorreta,
+            isCorrectAnswer: true
+          }
+        } 
+      } else {
+        
+
+        for(let j = 0; j < 4 ; j++) {
+          objeto.questions[i].answers[j] = {
+            text: RespostaIncorreta,
+            image: UrlIncorreta,
+            isCorrectAnswer: false
+          }
+        }
+      }
   }
   console.log(objeto.questions);
-
 }
 
 

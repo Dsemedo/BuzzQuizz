@@ -12,7 +12,7 @@ body{
   }
   
 .imagem-quizz2 {
-    height: 227px;
+    max-height: 227px;
     width: 100%;
     margin-top: 69px;
     position: relative;
@@ -21,9 +21,7 @@ body{
   }
   
 .imagem-quizz2 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  object-fit: cover;
   }
   
 .escurecer2 {
@@ -35,6 +33,7 @@ body{
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57));
   }
   
+
 .imagem-quizz2 p {
     position: absolute;
     font-size: 29px;
@@ -142,6 +141,7 @@ body{
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     color: white;
+    cursor: pointer;
 }
 
 
@@ -157,7 +157,7 @@ body{
     background-color: white;
     margin-top: 50px;
     margin-bottom: 80px;
-    border: 2px dashed #d5d5d5;
+    border: 1px dashed #d5d5d5;
     width: 1100px;
     height: 200px;
     border-radius: 10px;
@@ -207,7 +207,6 @@ body{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    background-color: gray;
 }
 
 .quizzes-api1{
@@ -256,13 +255,14 @@ body{
 
   .caixa-quizz3 {
     margin: 0 auto;
-    max-width: 50%;
+    width: 50%;
     height: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
   }
+
 
   button{
     background: #EC362D;
@@ -426,7 +426,7 @@ input{
 
     .quizzes-api1{
         width: 30%;
-        height: 30%;
+        max-height: 20%;
     }
 
 
