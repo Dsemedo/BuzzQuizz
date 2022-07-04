@@ -48,14 +48,7 @@ function criaQuizz(perguntas3){
         <div class="caixa-quizz3">
 
         <div class="pergunta1-3">
-        <div class="pergunta-fechada" onclick="abrirPergunta(this)">
-            
-            <span>Pergunta ${i + 1}</span>
-            <ion-icon name="create-outline"></ion-icon>
-  
-          </div>
-
-          <div class="pergunta-aberta escondido">
+          <div class="pergunta-aberta">
             <div class="titulo3">
             <span>Pergunta ${i + 1}</span>
             <input
@@ -143,7 +136,7 @@ function criaQuizz(perguntas3){
     }
     tela32.innerHTML += `
     <div class="caixa-quizz3">
-    <button type="submit" id="enviarPerguntas"">
+    <button type="submit" onclick= "enviarPerguntas()">
       Prosseguir para criar níveis
     </button>
     </div>
@@ -152,20 +145,20 @@ function criaQuizz(perguntas3){
 
 }
 
-const btn2 = document.querySelector('#enviarPerguntas');
+function enviarPerguntas(){
 
-btn2.addEventListener('click',function(f){
-  
   for (let i = 0; i < qtdPerguntas; i++) {
     const tituloPergunta = document.querySelector(`#TituloPergunta${i}`).value
     const corPergunta = document.querySelector(`#CorPergunta${i}`).value;
 
-    questions.push(tituloPergunta, corPergunta);
+    objeto.questions.push(tituloPergunta, corPergunta);
     console.log(tituloPergunta, corPergunta);
     
   }
-  console.log(objeto.questions)
-})
+  console.log(objeto.questions);
+
+}
+
 
 
 /* function abrirPergunta(elemento){
@@ -179,12 +172,12 @@ btn2.addEventListener('click',function(f){
   
 } */
 
-function abrirPergunta(elemento){
-  console.log(elemento)
-  const fecharPergunta = document.querySelector(".pergunta-fechada").classList.add("escondido");
-  const abrirPergunta = document.querySelector(".pergunta-aberta").classList.remove("escondido");
+// function abrirPergunta(elemento){
+//   console.log(elemento)
+//   const fecharPergunta = document.querySelector(".pergunta-fechada").classList.add("escondido");
+//   const abrirPergunta = document.querySelector(".pergunta-aberta").classList.remove("escondido");
 
-}
+// }
 
 // function abrirNivel(nivel){
 //     const fecharNivel = document.querySelector(".nivel-fechado").classList.add("escondido");
