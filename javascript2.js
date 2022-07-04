@@ -129,42 +129,4 @@ function verificaResposta(selecionado, qtdperguntas) {
 	tela1.classList.remove('escondido');
   }
 
-  let objeto = {};
-
-  const btn = document.querySelector('#enviar');
-
-  btn.addEventListener('click',function(e){
-	e.preventDefault();
-	const tituloQuizz3 = document.querySelector('#TituloQuizz');
-	const UrlQuizz3 = document.querySelector('#UrlQuizz');
-	const qtdperguntas3 = document.querySelector('#qtdperguntas');
-	const qtdniveis3 = document.querySelector('#qtdniveis');
-
-	verificaQuizz(tituloQuizz3.value,UrlQuizz3.value,qtdperguntas3.value,qtdniveis3.value);
-  })
-
-  function verificaQuizz(titulo, url, perguntas3, niveis3) {
-	function checkUrl(url){
-		var pattern = /^https:\/\//i;;
-		if(pattern.test(url)) {
-			return true;
-		} 
-	}
-
-		if(titulo.length < 20 || checkUrl(url) !== true || perguntas3 < 3 || niveis3 < 2) {
-			alert('Preencha os dados corretamente!');
-		} else {
-			objeto = {title:titulo,
-					image: url,
-					questions: []
-			}
-			console.log(objeto, perguntas3, niveis3)
-			criaQuizz(objeto, perguntas3, niveis3);
-		}
-
-	
-  }
-
-  function criaQuizz (obj, perg, niv) {
-	
-  }
+  
