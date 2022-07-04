@@ -24,6 +24,8 @@
   <body>
     <div class="barra-topo">BuzzQuizz</div>
 
+    <!-- TELA 1 -->
+
     <div class="tela1">
       <div class="lista-usuario1">
         <span> Você não criou nenhum quizz ainda :( </span>
@@ -36,6 +38,8 @@
       <div class="lista-api1"></div>
     </div>
 
+    <!-- TELA 2 -->
+
     <div class="tela2">
       <div class="conteudo2">
         <div class="imagem-quizz2">
@@ -46,226 +50,193 @@
       </div>
     </div>
 
-    <div class="tela3-1">
-      <div class="caixa-quizz3">
-        <div class="começo">
-          <h4>Comece pelo começo</h4>
-        </div>
+    <!-- TELA 3.1 -->
 
-        <input
-          type="text"
-          name=""
-          id="TituloQuizz"
-          maxlength="65"
-          placeholder="Título do seu quizz"
-          pattern="[a-zA-Z0-9]+"
-        />
-        <input
-          type="url"
-          name=""
-          id="UrlQuizz"
-          placeholder="URL da imagem do seu quizz"
-          required
-        />
-        <input
-          type="number"
-          name=""
-          id="qtdperguntas"
-          min="3"
-          placeholder="Quantidade de perguntas do quizz"
-        />
-        <input
-          type="number"
-          name=""
-          id="qtdniveis"
-          min="2"
-          placeholder="Quantidade de níveis do quizz"
-        />
+    <div class="tela3-1">
+      <div class="começo">
+        <h4>Comece pelo começo</h4>
+      </div>
+      <div class="caixa-quizz3">
+        <div class="pergunta1-3">
+          <input
+            type="text"
+            name=""
+            id="TituloQuizz"
+            maxlength="65"
+            placeholder="Título do seu quizz"
+            pattern="[a-zA-Z0-9]+"
+          />
+          <input
+            type="url"
+            name=""
+            id="UrlQuizz"
+            placeholder="URL da imagem do seu quizz"
+            required
+          />
+          <input
+            type="number"
+            name=""
+            id="qtdperguntas"
+            min="3"
+            placeholder="Quantidade de perguntas do quizz"
+          />
+          <input
+            type="number"
+            name=""
+            id="qtdniveis"
+            min="2"
+            placeholder="Quantidade de níveis do quizz"
+          />
+        </div>
 
         <button type="enviar" id="enviar">Prosseguir para perguntas</button>
       </div>
     </div>
 
-    <div class="tela3-2">
+    <!-- TELA 3.2 -->
+
+    <div class="tela3-2 escondido">
+      <div class="começo">
+        <h4>Crie suas perguntas</h4>
+      </div>
+    </div>
+
+    <!-- TELA 3.3 -->
+
+    <div class="tela3-3 escondido">
+      <div class="começo">
+        <h4>Agora, decida os níveis</h4>
+      </div>
       <div class="caixa-quizz3">
-        <div class="começo">
-          <h4>Crie suas perguntas</h4>
+        <div class="pergunta1-3">
+          <div class="titulo3">
+            <span>Nível 1</span>
+            <input
+              type="text"
+              name=""
+              id="TituloNivel1"
+              minlength="20"
+              placeholder="Título do nível"
+            />
+            <input
+              type="text"
+              name=""
+              id="PorcentagemNivel1"
+              placeholder="% de acerto mínima"
+            />
+
+            <input
+              type="url"
+              name=""
+              id="UrlNivel1"
+              placeholder="URL da imagem do nível"
+            />
+            <input
+              type="text"
+              name=""
+              id="DescricaoNivel1"
+              placeholder="Descrição do nível"
+            />
+          </div>
         </div>
 
         <div class="pergunta1-3">
-          <div class="titulo3">
-            <span>Pergunta 1</span>
-            <input
-              type="text"
-              name=""
-              id="TextoPergunta1"
-              minlength="20"
-              placeholder="Texto da pergunta"
-            />
-            <input
-              type="text"
-              name=""
-              id="CorPergunta1"
-              placeholder="Cor de fundo da pergunta"
-            />
+          <div class="nivel-fechado" onclick="abrirNivel(this)">
+            <span>Nível 2</span>
+            <ion-icon name="create-outline"></ion-icon>
           </div>
 
-          <div class="titulo3">
-            <span>Resposta Correta</span>
-
-            <input
-              type="text"
-              name=""
-              id="RespostaCorreta1"
-              placeholder="Resposta correta"
-            />
-            <input
-              type="url"
-              name=""
-              id="UrlQuizz"
-              placeholder="URL da imagem"
-            />
-          </div>
-
-          <div class="titulo3">
-            <span>Respostas incorretas</span>
-
-            <input
-              type="text"
-              name=""
-              id="RespostaIncorreta1"
-              placeholder="Resposta incorreta 1"
-            />
-            <input
-              type="url"
-              name=""
-              id="UrlResposta1"
-              placeholder="URL da imagem 1"
-            />
-
-            <div class="grupo">
+          <div class="nivel-aberto escondido">
+            <div class="titulo3">
+              <span>Nível 2</span>
               <input
                 type="text"
                 name=""
-                id="RespostaIncorreta2"
-                placeholder="Resposta incorreta 2"
+                id="TituloNivel2"
+                minlength="20"
+                placeholder="Título do nível"
               />
-              <input
-                type="url"
-                name=""
-                id="UrlResposta2"
-                placeholder="URL da imagem 2"
-              />
-            </div>
-
-            <div class="grupo">
               <input
                 type="text"
                 name=""
-                id="RespostaIncorreta3"
-                placeholder="Resposta incorreta 3"
+                id="PorcentagemNivel2"
+                placeholder="% de acerto mínima"
               />
+
               <input
                 type="url"
                 name=""
-                id="UrlResposta3"
-                placeholder="URL da imagem 3"
+                id="UrlNivel2"
+                placeholder="URL da imagem do nível"
+              />
+              <input
+                type="text"
+                name=""
+                id="DescricaoNivel2"
+                placeholder="Descrição do nível"
               />
             </div>
           </div>
         </div>
-
-        <div class="pergunta2-3">
-          <div class="titulo3">
-            <span>Pergunta 1</span>
-            <input
-              type="text"
-              name=""
-              id="TextoPergunta1"
-              minlength="20"
-              placeholder="Texto da pergunta"
-            />
-            <input
-              type="text"
-              name=""
-              id="CorPergunta1"
-              placeholder="Cor de fundo da pergunta"
-            />
+        <div class="pergunta1-3">
+          <div class="nivel-fechado" onclick="abrirNivel(this)">
+            <span>Nível 3</span>
+            <ion-icon name="create-outline"></ion-icon>
           </div>
 
-          <div class="titulo3">
-            <span>Resposta Correta</span>
-
-            <input
-              type="text"
-              name=""
-              id="RespostaCorreta1"
-              placeholder="Resposta correta"
-            />
-            <input
-              type="url"
-              name=""
-              id="UrlQuizz"
-              placeholder="URL da imagem"
-            />
-          </div>
-
-          <div class="titulo3">
-            <span>Respostas incorretas</span>
-
-            <input
-              type="text"
-              name=""
-              id="RespostaIncorreta1"
-              placeholder="Resposta incorreta 1"
-            />
-            <input
-              type="url"
-              name=""
-              id="UrlResposta1"
-              placeholder="URL da imagem 1"
-            />
-
-            <div class="grupo">
+          <div class="nivel-aberto escondido">
+            <div class="titulo3">
+              <span>Nível 3</span>
               <input
                 type="text"
                 name=""
-                id="RespostaIncorreta2"
-                placeholder="Resposta incorreta 2"
+                id="TituloNivel3"
+                minlength="20"
+                placeholder="Título do nível"
               />
-              <input
-                type="url"
-                name=""
-                id="UrlResposta2"
-                placeholder="URL da imagem 2"
-              />
-            </div>
-
-            <div class="grupo">
               <input
                 type="text"
                 name=""
-                id="RespostaIncorreta3"
-                placeholder="Resposta incorreta 3"
+                id="PorcentagemNivel3"
+                placeholder="% de acerto mínima"
               />
+
               <input
                 type="url"
                 name=""
-                id="UrlResposta3"
-                placeholder="URL da imagem 3"
+                id="UrlNivel3"
+                placeholder="URL da imagem do nível"
+              />
+              <input
+                type="text"
+                name=""
+                id="DescricaoNivel3"
+                placeholder="Descrição do nível"
               />
             </div>
           </div>
         </div>
+        <button type="submit" onclick="enviaDados()">Finalizar Quizz</button>
+      </div>
+    </div>
 
-        <div class="pergunta3-3">
-          <span>Pergunta 2</span>
-          <ion-icon name="create-outline"></ion-icon>
+    <!-- TELA 3.4 -->
+
+    <div class="tela3-4 escondido">
+      <div class="começo">
+        <h4>Seu quizz está pronto!</h4>
+      </div>
+      <div class="caixa-quizz3">
+        <div class="quizzes-api1">
+          <img
+            src="Fotos/ka_os-simpsons_2000x1125px_4c71687a.webp"
+            alt=""
+            srcset=""
+          />
+          <span> ${tamanhoQuizz.title} </span>
+          <div class="degrade"></div>
         </div>
-
-        <button type="submit" onclick="enviaDados()">
-          Prosseguir para perguntas
-        </button>
+        <button type="submit" onclick="enviaDados()">Finalizar Quizz</button>
       </div>
     </div>
 
@@ -303,9 +274,12 @@
       <button type="enviar3" id="enviar3">Finalizar Quizz</button>
     </div>
 
+    <section class="jogo2"></section>
+
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="javascript1.js"></script>
-    <script src="/BuzzQuizz/javascript2.js"></script>
+    <script src="javascript2.js"></script>
+    <script src="javascript3.js"></script>
   </body>
 </html>

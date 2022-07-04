@@ -108,25 +108,51 @@ function verificaResposta(selecionado, qtdperguntas) {
 
 		}
 		const secao = document.querySelector('.jogo2');
-				secao.innerHTML += `	${Math.round(arredondado)}% de acerto:${levels[levelCorreto].title}, <img src="${levels[levelCorreto].image}" e ${levels[levelCorreto].text}
+				secao.innerHTML += `
+					
+				<div class="quadro2 answer">
+        <div class="pergunta2" style="background-color:"#EC362D">
+          <p>
+            ${Math.round(arredondado)}% de acerto:${levels[levelCorreto].title}
+          </p>
+        </div>
+        <div class="mostra-resposta">
+          <img
+            src="${levels[levelCorreto].image}"
+          />
+
+          <div class="texto-resposta">${levels[levelCorreto].text}</div>
+        </div>
+      </div>
+
 
 				<button class="reiniciaQuiz" onclick="reiniciaQuizz()">Reiniciar Quizz</button>
-								<button class="home" onclick="paginaInicial()">Home</button>
+								<div class="home" onclick="paginaInicial()">Voltar pra Home</div>
 				`
 	}
+	const respostaQuiz = document.querySelector(".answer");
+	respostaQuiz.scrollIntoView();
 }
 
   function reiniciaQuizz() {
-	carregarQuiz();
+	
+	const selecionaDiv = document.querySelector(".jogo2");
+	selecionaDiv.innerHTML = ` `;
+	clique = 0;
+	const imagemQuiz = document.querySelector(".imagem-quizz2");
+	imagemQuiz.scrollIntoView();
+	carregarQuiz(quizzID,array);
   }
 
   function paginaInicial(){
-	const tela2 = document.querySelector('.tela2')
+	location.reload()
+  }
+
+ 
+/* function paginaInicial(){ const tela2 = document.querySelector('.tela2')
 	tela2.classList.add('escondido');
 	tela2.classList.remove('tela2');
 	const tela1 = document.querySelector('.escondido');
 	tela1.classList.add('tela1');
 	tela1.classList.remove('escondido');
-  }
-
-  
+	 } */
