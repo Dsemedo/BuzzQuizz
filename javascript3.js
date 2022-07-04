@@ -48,14 +48,9 @@ function criaQuizz(perguntas3){
         <div class="caixa-quizz3">
 
         <div class="pergunta1-3">
-        <div class="pergunta-fechada" onclick="abrirPergunta(this)">
-            
-            <span>Pergunta ${i + 1}</span>
-            <ion-icon name="create-outline"></ion-icon>
-  
-          </div>
+        
 
-          <div class="pergunta-aberta escondido">
+          <div class="pergunta-aberta">
             <div class="titulo3">
             <span>Pergunta ${i + 1}</span>
             <input
@@ -119,6 +114,8 @@ function criaQuizz(perguntas3){
                 id="UrlResposta${i+1}"
                 placeholder="URL da imagem 2"
               />
+              <label for="checkbox">Resposta correta</label>
+              <input type="checkbox" name="" id="isCorrectAnswer">
             </div>
 
             <div class="grupo">
@@ -143,7 +140,7 @@ function criaQuizz(perguntas3){
     }
     tela32.innerHTML += `
     <div class="caixa-quizz3">
-    <button type="submit" id="enviarPerguntas"">
+    <button type="submit" onclick="enviarPerguntas()">
       Prosseguir para criar níveis
     </button>
     </div>
@@ -152,20 +149,38 @@ function criaQuizz(perguntas3){
 
 }
 
-const btn2 = document.querySelector('#enviarPerguntas');
-
-btn2.addEventListener('click',function(f){
-  
+function enviarPerguntas() {
   for (let i = 0; i < qtdPerguntas; i++) {
     const tituloPergunta = document.querySelector(`#TituloPergunta${i}`).value
     const corPergunta = document.querySelector(`#CorPergunta${i}`).value;
+    objeto.questions[i] = {
+      title:tituloPergunta,
+      color:corPergunta, 
+      answers:[]};
 
-    questions.push(tituloPergunta, corPergunta);
-    console.log(tituloPergunta, corPergunta);
-    
+
+
+
+      const RespostaCorreta = document.querySelector(`#RespostaCorreta${i}`).value
+      const UrlQuizz = document.querySelector(`#UrlQuizz${i}`).value;
+      const RespostaIncorreta =  document.querySelector(`#RespostaIncorreta${i+2}`).value;
+      const UrlDaResposta = document.querySelector(`#UrlResposta${i+2}`).value;
+      const isCorrectAnswer = document.querySelector(`#isCorrectAnswer`).value;
+      if(RespostaIncorreta) {
+        for(let j = 0; j < qtdPerguntas ; j++) {
+          objeto.questions[i].answers[j] = {
+            text:RespostaCorreta,
+            image: UrlQuizz,
+            isCorrectAnswer: isCorrectAnswer
+          }
+        }
+          
+      }
+  
   }
-  console.log(objeto.questions)
-})
+  console.log(objeto.questions);
+}
+
 
 
 /* function abrirPergunta(elemento){

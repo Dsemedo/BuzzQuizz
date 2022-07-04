@@ -10,6 +10,7 @@ function carregarQuiz(id, quizServer) {
 	const quizEscolhido = quizServer.find((quiz) => quiz.id === id);
 	postaPergunta(quizEscolhido.questions);
 	postaImagem(quizEscolhido);
+	console.log(quizEscolhido);
 	levels = quizEscolhido.levels;
     const tela1 = document.querySelector('.tela1');
     tela1.classList.add('escondido');
